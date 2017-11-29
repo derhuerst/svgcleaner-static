@@ -1,0 +1,37 @@
+{
+	"name": "svgcleaner-static",
+	"description": "svgcleaner binaries for macOS, Linux and Windows.",
+	"version": "0.1.0",
+	"main": "index.js",
+	"files": [
+		"index.js",
+		"bin"
+	],
+	"keywords": [
+		"svgcleaner",
+		"svg",
+		"binary",
+		"static",
+		"macos",
+		"linux",
+		"windows"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/svgcleaner-static",
+	"repository": "derhuerst/svgcleaner-static",
+	"bugs": "https://github.com/derhuerst/svgcleaner-static/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=6"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"tap-min": "^1.2.2",
+		"tape": "^4.8.0"
+	},
+	"scripts": {
+		"build": "node build/index.js",
+		"test": "node test/index.js | tap-min",
+		"prepublishOnly": "npm run build && npm test"
+	}
+}

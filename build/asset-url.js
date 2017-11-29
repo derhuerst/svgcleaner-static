@@ -3,6 +3,8 @@
 
 const fetch = require('node-fetch')
 
+const githubToken = process.env.GITHUB_TOKEN || null
+
 const arch = process.argv[2]
 let pattern = null
 if (arch === 'linux') pattern = /^svgcleaner_linux_x86_64_[\d.]+\.tar\.gz$/i
@@ -11,7 +13,10 @@ else if (arch === 'windows') pattern = /^svgcleaner_win32_[\d.]+\.exe$/i
 else throw new Error('invalid arch parameter')
 
 const fetchJSON = (url) => {
-	return fetch(url, {redirect: 'follow'})
+	return fetch(url, {
+		redirect: 'follow',
+		header: githubToken ? {Authorization: 'token ' + githubToken} : {}
+	})
 	.then((res) => {
 		if (!res.ok) {
 			const err = new Error(res.statusText)

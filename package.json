@@ -31,7 +31,7 @@
 	},
 	"scripts": {
 		"build": "./build/index.sh",
-		"test": "node test/index.js | tap-min",
+		"test": "node test.js | tap-min",
 		"prepublishOnly": "npm run build && npm test"
 	}
 }

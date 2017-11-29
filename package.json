@@ -24,13 +24,13 @@
 	"engines": {
 		"node": ">=6"
 	},
-	"dependencies": {},
 	"devDependencies": {
+		"node-fetch": "^1.7.3",
 		"tap-min": "^1.2.2",
 		"tape": "^4.8.0"
 	},
 	"scripts": {
-		"build": "node build/index.js",
+		"build": "./build/index.sh",
 		"test": "node test/index.js | tap-min",
 		"prepublishOnly": "npm run build && npm test"
 	}

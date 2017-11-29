@@ -8,3 +8,8 @@ pnpm-debug.log
 
 package-lock.json
 shrinkwrap.yaml
+
+/bin/*/x64/svgcleaner
+
+/build/linux.tar.gz
+/build/macOS.zip

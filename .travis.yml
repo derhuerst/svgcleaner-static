@@ -1,9 +1,17 @@
 sudo: false
 language: node_js
+os:
+  - linux
+  - osx
 node_js:
-  - 'stable'
+  - stable
   - '8'
   - '6'
+addons:
+  apt:
+    packages:
+      - unzip
+      - tar
 script:
   - 'npm run build'
   - 'npm test'

@@ -30,8 +30,11 @@
 		"tape": "^4.8.0"
 	},
 	"scripts": {
-		"build": "./build/index.sh",
+		"build": "sh build/index.sh",
 		"test": "node test.js | tap-min",
 		"prepublishOnly": "npm run build && npm test"
+	},
+	"dependencies": {
+		"arch": "^2.1.0"
 	}
 }

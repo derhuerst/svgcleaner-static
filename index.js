@@ -1,6 +1,7 @@
 'use strict'
 
 const os = require('os')
+const getArch = require('arch')
 const path = require('path')
 
 const platform = os.platform()
@@ -9,7 +10,7 @@ if (platform !== 'linux' && platform !== 'darwin' && platform !== 'win32') {
 	process.exit(1)
 }
 
-const arch = os.arch()
+const arch = getArch()
 if (arch !== 'x64') {
 	console.error(`Unsupported architecture ${arch}.`)
 	process.exit(1)

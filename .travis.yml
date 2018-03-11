@@ -5,8 +5,11 @@ os:
   - osx
 node_js:
   - stable
-  - '8'
   - '6'
+matrix:
+  fast_finish: true
+  allow_failures:
+    - os: osx
 addons:
   apt:
     packages:

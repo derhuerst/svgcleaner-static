@@ -9,10 +9,13 @@ const arch = process.argv[2]
 let pattern = null
 if (arch === 'linux') pattern = /^svgcleaner_linux_x86_64_[\d.]+\.tar\.gz$/i
 else if (arch === 'macOS') pattern = /^svgcleaner_macos_[\d.]+\.zip$/i
-else if (arch === 'windows') pattern = /^svgcleaner_win32_[\d.]+\.exe$/i
+else if (arch === 'windows') pattern = /^svgcleaner_win32_[\d.]+\.zip$/i
 else throw new Error('invalid arch parameter')
 
 const fetchJSON = (url) => {
+	if (githubToken) {
+		console.error(`Using GitHub token ${githubToken.slice(0, 10)}….`)
+	}
 	return fetch(url, {
 		redirect: 'follow',
 		header: githubToken ? {Authorization: 'token ' + githubToken} : {}
@@ -27,7 +30,7 @@ const fetchJSON = (url) => {
 	})
 }
 
-fetchJSON(`https://api.github.com/repos/RazrFalcon/svgcleaner-gui/releases/latest`)
+fetchJSON(`https://api.github.com/repos/RazrFalcon/svgcleaner/releases/latest`)
 .then((r) => {
 	if (!Array.isArray(r.assets) || r.assets.length === 0) {
 		throw new Error(r.tag_name + ' release has no assets.')

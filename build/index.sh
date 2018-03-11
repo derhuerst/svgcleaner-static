@@ -1,4 +1,5 @@
 #!/bin/sh
+set +e
 cd $(dirname $0)
 
 download () {
@@ -11,13 +12,18 @@ if [ $? -ne 0 ]; then
 fi
 
 echo 'downloading linux asset'
-download $(./asset-url.js linux) linux.tar.gz
-$tar -x -C ../bin/linux/x64 --strip-components 1 -f linux.tar.gz --wildcards '*/svgcleaner'
+linuxUrl=$(./asset-url.js linux)
+download $linuxUrl linux.tar.gz
+$tar -xz -C ../bin/linux/x64 -f linux.tar.gz svgcleaner
 
 echo 'downloading macOS asset'
-download $(./asset-url.js macOS) macOS.zip
-unzip -o -d . -j macOS.zip '**/MacOS/svgcleaner-cli'
-mv svgcleaner-cli ../bin/darwin/x64/svgcleaner
+macOSUrl=$(./asset-url.js macOS)
+download $macOSUrl macOS.zip
+unzip -o -d . -j macOS.zip svgcleaner
+mv svgcleaner ../bin/darwin/x64/svgcleaner
 
-# todo: windows
-# see https://github.com/RazrFalcon/svgcleaner/issues/99#issuecomment-347906481
+echo 'downloading Windows asset'
+windowsUrl=$(./asset-url.js windows)
+download $windowsUrl windows.zip
+unzip -o -d . -j windows.zip svgcleaner-cli.exe
+mv svgcleaner-cli.exe ../bin/win32/x64/svgcleaner.exe

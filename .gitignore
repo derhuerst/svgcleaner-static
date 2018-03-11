@@ -9,7 +9,9 @@ pnpm-debug.log
 package-lock.json
 shrinkwrap.yaml
 
-/bin/*/x64/svgcleaner
+/bin/**/svgcleaner
+/bin/**/svgcleaner.exe
 
 /build/linux.tar.gz
 /build/macOS.zip
+/build/windows.zip

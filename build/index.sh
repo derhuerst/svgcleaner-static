@@ -25,5 +25,4 @@ mv svgcleaner ../bin/darwin/x64/svgcleaner
 echo 'downloading Windows asset'
 windowsUrl=$(node asset-url.js windows)
 download $windowsUrl windows.zip
-unzip -o -d . -j windows.zip svgcleaner-cli.exe
-mv svgcleaner-cli.exe ../bin/win32/x64/svgcleaner.exe
+unzip -o -d ../bin/win32/x64 -j windows.zip svgcleaner.exe

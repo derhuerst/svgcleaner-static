@@ -1,6 +1,6 @@
 # svgcleaner-static
 
-**[svgcleaner](https://github.com/RazrFalcon/svgcleaner#svgcleaner-) binaries for macOS, Linux and Windows.**
+**[svgcleaner](https://github.com/RazrFalcon/svgcleaner#svgcleaner-) binaries for macOS, Linux and Windows.** Currently contains `v0.9.5`.
 
 [![npm version](https://img.shields.io/npm/v/svgcleaner-static.svg)](https://www.npmjs.com/package/svgcleaner-static)
 [![build status](https://api.travis-ci.org/derhuerst/svgcleaner-static.svg?branch=master)](https://travis-ci.org/derhuerst/svgcleaner-static)
